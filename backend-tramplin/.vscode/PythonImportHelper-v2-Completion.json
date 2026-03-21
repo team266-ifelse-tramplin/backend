@@ -84,6 +84,14 @@
         "documentation": {}
     },
     {
+        "label": "ZoneInfo",
+        "importPath": "zoneinfo",
+        "description": "zoneinfo",
+        "isExtraImport": true,
+        "detail": "zoneinfo",
+        "documentation": {}
+    },
+    {
         "label": "ENV_FILE_NAME",
         "importPath": "const",
         "description": "const",
@@ -108,6 +116,54 @@
         "documentation": {}
     },
     {
+        "label": "DEFAULT_TIMEZONE",
+        "importPath": "const",
+        "description": "const",
+        "isExtraImport": true,
+        "detail": "const",
+        "documentation": {}
+    },
+    {
+        "label": "DeclarativeBase",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declared_attr",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "mapped_column",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Mapped",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncAttrs",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
         "label": "create_async_engine",
         "importPath": "sqlalchemy.ext.asyncio",
         "description": "sqlalchemy.ext.asyncio",
@@ -121,6 +177,118 @@
         "description": "sqlalchemy.ext.asyncio",
         "isExtraImport": true,
         "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "models.base",
+        "description": "models.base",
+        "isExtraImport": true,
+        "detail": "models.base",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "uuid4",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "UniqueConstraint",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "PrimaryKeyConstraint",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "core.config",
+        "description": "core.config",
+        "isExtraImport": true,
+        "detail": "core.config",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Opportunities",
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "isExtraImport": true,
+        "detail": "src.database.models.models",
         "documentation": {}
     },
     {
@@ -146,6 +314,14 @@
         "description": "fastapi.middleware.cors",
         "isExtraImport": true,
         "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "asynccontextmanager",
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "isExtraImport": true,
+        "detail": "contextlib",
         "documentation": {}
     },
     {
@@ -243,8 +419,170 @@
         "kind": 6,
         "importPath": "src.core.config",
         "description": "src.core.config",
-        "peekOfCode": "class Config(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file=ENV_FILE_NAME,\n        env_file_encoding=ENV_FILE_ENCODING,\n        env_nested_delimiter=ENV_NESTED_DELIMETER,\n    )\n    db: DatabaseSettings",
+        "peekOfCode": "class Config(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file=ENV_FILE_NAME,\n        env_file_encoding=ENV_FILE_ENCODING,\n        env_nested_delimiter=ENV_NESTED_DELIMETER,\n    )\n    db: DatabaseSettings\n    default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)\nsettings = Config()",
         "detail": "src.core.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "kind": 5,
+        "importPath": "src.core.config",
+        "description": "src.core.config",
+        "peekOfCode": "settings = Config()",
+        "detail": "src.core.config",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 6,
+        "importPath": "src.database.models.base",
+        "description": "src.database.models.base",
+        "peekOfCode": "class Base(AsyncAttrs, DeclarativeBase):\n    @declared_attr\n    def __tablename__(cls):\n        return cls.__name__.lower()",
+        "detail": "src.database.models.base",
+        "documentation": {}
+    },
+    {
+        "label": "Users",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Users(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    phone: Mapped[str] = mapped_column(String(20), nullable=False, unique=True, index=True)\n    email: Mapped[str] = mapped_column(String(100), nullable=False, unique=True, index=True)\n    display_name: Mapped[str] = mapped_column(String(150), nullable=False)\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False)\n    email_verified: Mapped[bool] = mapped_column(Boolean, default=False)\n    is_blocked: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(settings.default_timezone), nullable=False)\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Verification_Codes",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Verification_Codes(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    user_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    code: Mapped[str] = mapped_column(String(6), nullable=False)\n    purpose: Mapped[str] = mapped_column(String(20), nullable=False) ## \"login\", \"email_verify\"\n    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)\n    is_used: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(settings.default_timezone), nullable=False)\nclass JWT_Token_Blacklist(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "JWT_Token_Blacklist",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class JWT_Token_Blacklist(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    jwt_id: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)\n    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(settings.default_timezone), nullable=False)\nclass Roles(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(10), unique=True, nullable=False) # admin, guest, applicant, employer\nclass Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Roles",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Roles(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(10), unique=True, nullable=False) # admin, guest, applicant, employer\nclass Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    resource: Mapped[str] = mapped_column(String(100), nullable=False)\n    permission: Mapped[str] = mapped_column(String(10), nullable=False)\n    __table_args__ = (\n        UniqueConstraint('resource', 'permission', name='uq_resource_permission'),\n    )",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Permissions",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    resource: Mapped[str] = mapped_column(String(100), nullable=False)\n    permission: Mapped[str] = mapped_column(String(10), nullable=False)\n    __table_args__ = (\n        UniqueConstraint('resource', 'permission', name='uq_resource_permission'),\n    )\nclass Role_Permissions(Base):\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\"), nullable=False)\n    permission_id: Mapped[int] = mapped_column(ForeignKey(\"permissions.id\", ondelete=\"CASCADE\"), nullable=False)",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Role_Permissions",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Role_Permissions(Base):\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\"), nullable=False)\n    permission_id: Mapped[int] = mapped_column(ForeignKey(\"permissions.id\", ondelete=\"CASCADE\"), nullable=False)\n    __table_args__ = (\n        PrimaryKeyConstraint(\"role_id\", \"permission_id\"),\n    )\nclass Applicants(Base): ...\nclass Companies(Base): ...\nclass Employers(Base): ...\nclass Admins(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Applicants",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Applicants(Base): ...\nclass Companies(Base): ...\nclass Employers(Base): ...\nclass Admins(Base): ...\nclass Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Companies",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Companies(Base): ...\nclass Employers(Base): ...\nclass Admins(Base): ...\nclass Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Employers",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Employers(Base): ...\nclass Admins(Base): ...\nclass Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Admins",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Admins(Base): ...\nclass Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Opportunities",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tags",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Opportunity_Tags",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Applications",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Favorites",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Favorites(Base): ...\nclass Connections(Base): ...",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Connections",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Connections(Base): ...",
+        "detail": "src.database.models.models",
         "documentation": {}
     },
     {

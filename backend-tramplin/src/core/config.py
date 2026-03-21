@@ -1,6 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from settings.db_settings import DatabaseSettings
-from const import ENV_FILE_NAME, ENV_FILE_ENCODING, ENV_NESTED_DELIMETER
+from zoneinfo import ZoneInfo
+from const import ENV_FILE_NAME, ENV_FILE_ENCODING, ENV_NESTED_DELIMETER, DEFAULT_TIMEZONE
 
 
 class Config(BaseSettings):
@@ -12,6 +13,12 @@ class Config(BaseSettings):
     )
 
     db: DatabaseSettings
+
+    default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)
+
+
+settings = Config()
+
 
 
 
