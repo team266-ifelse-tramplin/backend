@@ -15,6 +15,7 @@ class Config(BaseSettings):
     db: DatabaseSettings
 
     default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)
+    default_file_type: str = "application/octet-stream"
 
 
 settings = Config()

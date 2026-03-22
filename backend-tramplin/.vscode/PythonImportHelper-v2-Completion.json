@@ -124,6 +124,22 @@
         "documentation": {}
     },
     {
+        "label": "StrEnum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "auto",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
         "label": "DeclarativeBase",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -268,6 +284,46 @@
         "documentation": {}
     },
     {
+        "label": "CheckConstraint",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Numeric",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "JSONB",
+        "importPath": "sqlalchemy.dialects.postgresql",
+        "description": "sqlalchemy.dialects.postgresql",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.dialects.postgresql",
+        "documentation": {}
+    },
+    {
         "label": "settings",
         "importPath": "core.config",
         "description": "core.config",
@@ -284,11 +340,11 @@
         "documentation": {}
     },
     {
-        "label": "Opportunities",
-        "importPath": "src.database.models.models",
-        "description": "src.database.models.models",
+        "label": "VerificationMethod",
+        "importPath": "core.const",
+        "description": "core.const",
         "isExtraImport": true,
-        "detail": "src.database.models.models",
+        "detail": "core.const",
         "documentation": {}
     },
     {
@@ -419,7 +475,7 @@
         "kind": 6,
         "importPath": "src.core.config",
         "description": "src.core.config",
-        "peekOfCode": "class Config(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file=ENV_FILE_NAME,\n        env_file_encoding=ENV_FILE_ENCODING,\n        env_nested_delimiter=ENV_NESTED_DELIMETER,\n    )\n    db: DatabaseSettings\n    default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)\nsettings = Config()",
+        "peekOfCode": "class Config(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file=ENV_FILE_NAME,\n        env_file_encoding=ENV_FILE_ENCODING,\n        env_nested_delimiter=ENV_NESTED_DELIMETER,\n    )\n    db: DatabaseSettings\n    default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)\n    default_file_type: str = \"application/octet-stream\"\nsettings = Config()",
         "detail": "src.core.config",
         "documentation": {}
     },
@@ -430,6 +486,15 @@
         "description": "src.core.config",
         "peekOfCode": "settings = Config()",
         "detail": "src.core.config",
+        "documentation": {}
+    },
+    {
+        "label": "VerificationMethod",
+        "kind": 6,
+        "importPath": "src.core.const",
+        "description": "src.core.const",
+        "peekOfCode": "class VerificationMethod(StrEnum):\n    EMAIL = auto().lower()\n    INN = auto().lower()\n    SOCIAL = auto().lower()",
+        "detail": "src.core.const",
         "documentation": {}
     },
     {
@@ -446,7 +511,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Users(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    phone: Mapped[str] = mapped_column(String(20), nullable=False, unique=True, index=True)\n    email: Mapped[str] = mapped_column(String(100), nullable=False, unique=True, index=True)\n    display_name: Mapped[str] = mapped_column(String(150), nullable=False)\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False)\n    email_verified: Mapped[bool] = mapped_column(Boolean, default=False)\n    is_blocked: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(settings.default_timezone), nullable=False)\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))",
+        "peekOfCode": "class Users(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    phone: Mapped[str] = mapped_column(String(20), nullable=False, unique=True, index=True)\n    email: Mapped[str] = mapped_column(String(100), nullable=False, unique=True, index=True)\n    display_name: Mapped[str] = mapped_column(String(150), nullable=False)\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False)\n    email_verified: Mapped[bool] = mapped_column(Boolean, default=False)\n    is_blocked: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), nullable=False)\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -455,7 +520,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Verification_Codes(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    user_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    code: Mapped[str] = mapped_column(String(6), nullable=False)\n    purpose: Mapped[str] = mapped_column(String(20), nullable=False) ## \"login\", \"email_verify\"\n    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)\n    is_used: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(settings.default_timezone), nullable=False)\nclass JWT_Token_Blacklist(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))",
+        "peekOfCode": "class Verification_Codes(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    code: Mapped[str] = mapped_column(String(6), nullable=False)\n    purpose: Mapped[str] = mapped_column(String(20), nullable=False) ## \"login\", \"email_verify\"\n    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)\n    is_used: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), nullable=False)\nclass JWT_Token_Blacklist(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -464,7 +529,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class JWT_Token_Blacklist(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    jwt_id: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)\n    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(settings.default_timezone), nullable=False)\nclass Roles(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(10), unique=True, nullable=False) # admin, guest, applicant, employer\nclass Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)",
+        "peekOfCode": "class JWT_Token_Blacklist(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    jwt_id: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)\n    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), nullable=False)\nclass Roles(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(10), unique=True, nullable=False) # admin, guest, applicant, employer\nclass Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -491,7 +556,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Role_Permissions(Base):\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\"), nullable=False)\n    permission_id: Mapped[int] = mapped_column(ForeignKey(\"permissions.id\", ondelete=\"CASCADE\"), nullable=False)\n    __table_args__ = (\n        PrimaryKeyConstraint(\"role_id\", \"permission_id\"),\n    )\nclass Applicants(Base): ...\nclass Companies(Base): ...\nclass Employers(Base): ...\nclass Admins(Base): ...",
+        "peekOfCode": "class Role_Permissions(Base):\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\"), nullable=False)\n    permission_id: Mapped[int] = mapped_column(ForeignKey(\"permissions.id\", ondelete=\"CASCADE\"), nullable=False)\n    __table_args__ = (\n        PrimaryKeyConstraint(\"role_id\", \"permission_id\"),\n    )\nclass Applicants(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False)\n    first_name: Mapped[str] = mapped_column(String(100))",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -500,7 +565,16 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Applicants(Base): ...\nclass Companies(Base): ...\nclass Employers(Base): ...\nclass Admins(Base): ...\nclass Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "peekOfCode": "class Applicants(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False)\n    first_name: Mapped[str] = mapped_column(String(100))\n    middle_name: Mapped[str] = mapped_column(String(100))\n    last_name: Mapped[str] = mapped_column(String(100))\n    university: Mapped[str] = mapped_column(String(255))\n    graduation_year: Mapped[int] = mapped_column(Integer)\n    current_education_year: Mapped[int] = mapped_column(Integer)\n    about: Mapped[str] = mapped_column(String(255))",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "User_Documents",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class User_Documents(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False, index=True)\n    doc_type: Mapped[str] = mapped_column(String(50), nullable=False, index=True)\n    title: Mapped[str] = mapped_column(String(100), nullable=False)\n    description: Mapped[str] = mapped_column(String(255))\n    file_url: Mapped[str] = mapped_column(Text, nullable=False)\n    file_name: Mapped[str] = mapped_column(String(255))\n    file_size: Mapped[int] = mapped_column(Integer, nullable=False)\n    mime_type: Mapped[str] = mapped_column(String(100), nullable=False, default=settings.default_file_type)",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -509,7 +583,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Companies(Base): ...\nclass Employers(Base): ...\nclass Admins(Base): ...\nclass Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "peekOfCode": "class Companies(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    name: Mapped[str] = mapped_column(String(255), nullable=False, index=True)\n    description: Mapped[str] = mapped_column(Text)\n    website: Mapped[str] = mapped_column(Text)\n    industry: Mapped[str] = mapped_column(String(100))\n    staff_size: Mapped[str] = mapped_column(String(10))\n    location_city: Mapped[str] = mapped_column(String(100))\n    location_address: Mapped[str] = mapped_column(Text)\n    logo_url: Mapped[str] = mapped_column(Text)",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -518,16 +592,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Employers(Base): ...\nclass Admins(Base): ...\nclass Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
-        "detail": "src.database.models.models",
-        "documentation": {}
-    },
-    {
-        "label": "Admins",
-        "kind": 6,
-        "importPath": "src.database.models.models",
-        "description": "src.database.models.models",
-        "peekOfCode": "class Admins(Base): ...\nclass Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "peekOfCode": "class Employers(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"))\n    company_id: Mapped[UUID] = mapped_column(ForeignKey(\"companies.id\"), nullable=False)\n    position: Mapped[str] = mapped_column(String(100))\n    # is_approved: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\nclass Opportunities(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    title: Mapped[str] = mapped_column(String(255), nullable=False)",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -536,7 +601,16 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Opportunities(Base): ...\nclass Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "peekOfCode": "class Opportunities(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    title: Mapped[str] = mapped_column(String(255), nullable=False)\n    description: Mapped[str] = mapped_column(Text, nullable=False)\n    company_id: Mapped[UUID] = mapped_column(ForeignKey(\"companies.id\", onupdate=\"CASCADE\"), nullable=False)\n    type: Mapped[str] = mapped_column(String(30), nullable=False)\n    work_format: Mapped[str] = mapped_column(String(30))\n    location: Mapped[str] = mapped_column(String(255))\n    latitude: Mapped[float] = mapped_column(Numeric(10, 8))\n    longitude: Mapped[float] = mapped_column(Numeric(11, 8))",
+        "detail": "src.database.models.models",
+        "documentation": {}
+    },
+    {
+        "label": "Curators",
+        "kind": 6,
+        "importPath": "src.database.models.models",
+        "description": "src.database.models.models",
+        "peekOfCode": "class Curators(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", onupdate=\"CASCADE\", ondelete=\"CASCADE\"))\n    university: Mapped[str] = mapped_column(String(255))\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\nclass Tags(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(100), nullable=False, index=True)\n    category: Mapped[str] = mapped_column(String(50))  # skill, level, employment_type\n    is_system: Mapped[bool] = mapped_column(Boolean, default=False)",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -545,16 +619,16 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Tags(Base): ...\nclass Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "peekOfCode": "class Tags(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(100), nullable=False, index=True)\n    category: Mapped[str] = mapped_column(String(50))  # skill, level, employment_type\n    is_system: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\n    __table_args__ = (\n        CheckConstraint(\"category IN ('skill', 'level', 'employment_type')\", name=\"check_tag_category_valid\")\n    )\nclass OpportunityTags(Base):",
         "detail": "src.database.models.models",
         "documentation": {}
     },
     {
-        "label": "Opportunity_Tags",
+        "label": "OpportunityTags",
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Opportunity_Tags(Base): ...\nclass Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "peekOfCode": "class OpportunityTags(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    opportunity_id: Mapped[UUID] = mapped_column(ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"))\n    tag_id: Mapped[int] = mapped_column(ForeignKey(\"tags.id\", ondelete=\"CASCADE\"))\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\nclass Applications(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    opportunity_id: Mapped[UUID] = mapped_column(ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"), nullable=False)\n    applicant_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    status: Mapped[str] = mapped_column(String(50), default=\"pending\")",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -563,7 +637,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Applications(Base): ...\nclass Favorites(Base): ...\nclass Connections(Base): ...",
+        "peekOfCode": "class Applications(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    opportunity_id: Mapped[UUID] = mapped_column(ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"), nullable=False)\n    applicant_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    status: Mapped[str] = mapped_column(String(50), default=\"pending\")\n    cover_letter: Mapped[str] = mapped_column(Text)\n    applied_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), onupdate=lambda: datetime.now(settings.default_timezone))\n    __table_args__ = (\n        CheckConstraint(\"status IN ('pending', 'accepted', 'rejected', 'reserved')\", name=\"check_application_status_valid\"),",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -572,7 +646,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Favorites(Base): ...\nclass Connections(Base): ...",
+        "peekOfCode": "class Favorites(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    opportunity_id: Mapped[UUID] = mapped_column(ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"), nullable=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\n    __table_args__ = (\n        UniqueConstraint(\"user_id\", \"opportunity_id\", name=\"unique_favorite_per_user\"),\n    )\nclass Connections(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -581,7 +655,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Connections(Base): ...",
+        "peekOfCode": "class Connections(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)  # тот, кто отправил заявку на добавление\n    friend_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)  # тот, кто полуичл заявку на добавление\n    status: Mapped[str] = mapped_column(String(20), default=\"pending\")\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), onupdate=lambda: datetime.now(settings.default_timezone))\n    __table_args__ = (\n        CheckConstraint(\"user_id != friend_id\", name=\"check_not_self_connection\"),\n        CheckConstraint(\"status IN ('pending', 'accepted')\", name=\"check_connection_status_valid\"),",
         "detail": "src.database.models.models",
         "documentation": {}
     },
