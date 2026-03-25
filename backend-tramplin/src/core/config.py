@@ -1,7 +1,9 @@
+from zoneinfo import ZoneInfo
+
+from const import (DEFAULT_TIMEZONE, ENV_FILE_ENCODING, ENV_FILE_NAME,
+                   ENV_NESTED_DELIMETER)
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from settings.db_settings import DatabaseSettings
-from zoneinfo import ZoneInfo
-from const import ENV_FILE_NAME, ENV_FILE_ENCODING, ENV_NESTED_DELIMETER, DEFAULT_TIMEZONE
 
 
 class Config(BaseSettings):
@@ -17,9 +19,9 @@ class Config(BaseSettings):
     default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)
     default_file_type: str = "application/octet-stream"
 
+    default_host: str = "localhost"
+    default_port: str = "8000"
+    server_reload: bool = True
+
 
 settings = Config()
-
-
-
-

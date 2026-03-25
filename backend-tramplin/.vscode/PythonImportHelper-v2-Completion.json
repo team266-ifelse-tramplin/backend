@@ -44,6 +44,118 @@
         "documentation": {}
     },
     {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "API_URL",
+        "importPath": "core.const",
+        "description": "core.const",
+        "isExtraImport": true,
+        "detail": "core.const",
+        "documentation": {}
+    },
+    {
+        "label": "VerificationMethod",
+        "importPath": "core.const",
+        "description": "core.const",
+        "isExtraImport": true,
+        "detail": "core.const",
+        "documentation": {}
+    },
+    {
+        "label": "ORJSON_PROPERTIES_MASK",
+        "importPath": "core.const",
+        "description": "core.const",
+        "isExtraImport": true,
+        "detail": "core.const",
+        "documentation": {}
+    },
+    {
+        "label": "opportunity_router",
+        "importPath": "opportunity",
+        "description": "opportunity",
+        "isExtraImport": true,
+        "detail": "opportunity",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityFiltersDTO",
+        "importPath": "database.dto.opportunity",
+        "description": "database.dto.opportunity",
+        "isExtraImport": true,
+        "detail": "database.dto.opportunity",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityDTO",
+        "importPath": "database.dto.opportunity",
+        "description": "database.dto.opportunity",
+        "isExtraImport": true,
+        "detail": "database.dto.opportunity",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityDTO",
+        "importPath": "database.dto.opportunity",
+        "description": "database.dto.opportunity",
+        "isExtraImport": true,
+        "detail": "database.dto.opportunity",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityEditDTO",
+        "importPath": "database.dto.opportunity",
+        "description": "database.dto.opportunity",
+        "isExtraImport": true,
+        "detail": "database.dto.opportunity",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -57,6 +169,86 @@
         "description": "pydantic",
         "isExtraImport": true,
         "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigDict",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "UUID4",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "field_serializer",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "ZoneInfo",
+        "importPath": "zoneinfo",
+        "description": "zoneinfo",
+        "isExtraImport": true,
+        "detail": "zoneinfo",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_TIMEZONE",
+        "importPath": "const",
+        "description": "const",
+        "isExtraImport": true,
+        "detail": "const",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_FILE_ENCODING",
+        "importPath": "const",
+        "description": "const",
+        "isExtraImport": true,
+        "detail": "const",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_FILE_NAME",
+        "importPath": "const",
+        "description": "const",
+        "isExtraImport": true,
+        "detail": "const",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_NESTED_DELIMETER",
+        "importPath": "const",
+        "description": "const",
+        "isExtraImport": true,
+        "detail": "const",
         "documentation": {}
     },
     {
@@ -84,46 +276,6 @@
         "documentation": {}
     },
     {
-        "label": "ZoneInfo",
-        "importPath": "zoneinfo",
-        "description": "zoneinfo",
-        "isExtraImport": true,
-        "detail": "zoneinfo",
-        "documentation": {}
-    },
-    {
-        "label": "ENV_FILE_NAME",
-        "importPath": "const",
-        "description": "const",
-        "isExtraImport": true,
-        "detail": "const",
-        "documentation": {}
-    },
-    {
-        "label": "ENV_FILE_ENCODING",
-        "importPath": "const",
-        "description": "const",
-        "isExtraImport": true,
-        "detail": "const",
-        "documentation": {}
-    },
-    {
-        "label": "ENV_NESTED_DELIMETER",
-        "importPath": "const",
-        "description": "const",
-        "isExtraImport": true,
-        "detail": "const",
-        "documentation": {}
-    },
-    {
-        "label": "DEFAULT_TIMEZONE",
-        "importPath": "const",
-        "description": "const",
-        "isExtraImport": true,
-        "detail": "const",
-        "documentation": {}
-    },
-    {
         "label": "StrEnum",
         "importPath": "enum",
         "description": "enum",
@@ -140,67 +292,92 @@
         "documentation": {}
     },
     {
-        "label": "DeclarativeBase",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "orjson",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "importPath": "orjson",
+        "description": "orjson",
+        "detail": "orjson",
         "documentation": {}
     },
     {
-        "label": "declared_attr",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "detail": "datetime",
         "documentation": {}
     },
     {
-        "label": "mapped_column",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "detail": "datetime",
         "documentation": {}
     },
     {
-        "label": "Mapped",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "detail": "datetime",
         "documentation": {}
     },
     {
-        "label": "AsyncAttrs",
-        "importPath": "sqlalchemy.ext.asyncio",
-        "description": "sqlalchemy.ext.asyncio",
+        "label": "Decimal",
+        "importPath": "decimal",
+        "description": "decimal",
         "isExtraImport": true,
-        "detail": "sqlalchemy.ext.asyncio",
+        "detail": "decimal",
         "documentation": {}
     },
     {
-        "label": "create_async_engine",
-        "importPath": "sqlalchemy.ext.asyncio",
-        "description": "sqlalchemy.ext.asyncio",
+        "label": "Decimal",
+        "importPath": "decimal",
+        "description": "decimal",
         "isExtraImport": true,
-        "detail": "sqlalchemy.ext.asyncio",
+        "detail": "decimal",
         "documentation": {}
     },
     {
-        "label": "AsyncSession",
-        "importPath": "sqlalchemy.ext.asyncio",
-        "description": "sqlalchemy.ext.asyncio",
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "sqlalchemy.ext.asyncio",
+        "detail": "typing",
         "documentation": {}
     },
     {
-        "label": "Base",
-        "importPath": "models.base",
-        "description": "models.base",
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "models.base",
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Literal",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncGenerator",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
         "documentation": {}
     },
     {
@@ -220,63 +397,119 @@
         "documentation": {}
     },
     {
-        "label": "String",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
         "isExtraImport": true,
-        "detail": "sqlalchemy",
+        "detail": "uuid",
         "documentation": {}
     },
     {
-        "label": "Integer",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
+        "label": "DTO",
+        "importPath": "base",
+        "description": "base",
         "isExtraImport": true,
-        "detail": "sqlalchemy",
+        "detail": "base",
         "documentation": {}
     },
     {
-        "label": "text",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
+        "label": "ServiceBase",
+        "importPath": "base",
+        "description": "base",
         "isExtraImport": true,
-        "detail": "sqlalchemy",
+        "detail": "base",
         "documentation": {}
     },
     {
-        "label": "ForeignKey",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
+        "label": "AsyncAttrs",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
         "isExtraImport": true,
-        "detail": "sqlalchemy",
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "Asyn",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncEngine",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "async_sessionmaker",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "create_async_engine",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "DeclarativeBase",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declared_attr",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Mapped",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "mapped_column",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "models.base",
+        "description": "models.base",
+        "isExtraImport": true,
+        "detail": "models.base",
         "documentation": {}
     },
     {
         "label": "Boolean",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
-        "isExtraImport": true,
-        "detail": "sqlalchemy",
-        "documentation": {}
-    },
-    {
-        "label": "DateTime",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
-        "isExtraImport": true,
-        "detail": "sqlalchemy",
-        "documentation": {}
-    },
-    {
-        "label": "UniqueConstraint",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
-        "isExtraImport": true,
-        "detail": "sqlalchemy",
-        "documentation": {}
-    },
-    {
-        "label": "PrimaryKeyConstraint",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -292,7 +525,7 @@
         "documentation": {}
     },
     {
-        "label": "Text",
+        "label": "DateTime",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -308,7 +541,103 @@
         "documentation": {}
     },
     {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "Numeric",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "PrimaryKeyConstraint",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "UniqueConstraint",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "delete",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "insert",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "select",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "update",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -332,19 +661,83 @@
         "documentation": {}
     },
     {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "settings",
+        "importPath": "core.config",
+        "description": "core.config",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "core.config",
         "documentation": {}
     },
     {
-        "label": "VerificationMethod",
-        "importPath": "core.const",
-        "description": "core.const",
+        "label": "settings",
+        "importPath": "core.config",
+        "description": "core.config",
         "isExtraImport": true,
-        "detail": "core.const",
+        "detail": "core.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "core.config",
+        "description": "core.config",
+        "isExtraImport": true,
+        "detail": "core.config",
+        "documentation": {}
+    },
+    {
+        "label": "asynccontextmanager",
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "isExtraImport": true,
+        "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "asynccontextmanager",
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "isExtraImport": true,
+        "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "Database",
+        "importPath": "database.db",
+        "description": "database.db",
+        "isExtraImport": true,
+        "detail": "database.db",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityDict",
+        "importPath": "core.types",
+        "description": "core.types",
+        "isExtraImport": true,
+        "detail": "core.types",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityList",
+        "importPath": "core.types",
+        "description": "core.types",
+        "isExtraImport": true,
+        "detail": "core.types",
+        "documentation": {}
+    },
+    {
+        "label": "Opportunities",
+        "importPath": "database.models.models",
+        "description": "database.models.models",
+        "isExtraImport": true,
+        "detail": "database.models.models",
         "documentation": {}
     },
     {
@@ -357,14 +750,6 @@
         "documentation": {}
     },
     {
-        "label": "FastAPI",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
         "label": "CORSMiddleware",
         "importPath": "fastapi.middleware.cors",
         "description": "fastapi.middleware.cors",
@@ -373,11 +758,11 @@
         "documentation": {}
     },
     {
-        "label": "asynccontextmanager",
-        "importPath": "contextlib",
-        "description": "contextlib",
+        "label": "OpportunityMaster",
+        "importPath": "services.opportunity",
+        "description": "services.opportunity",
         "isExtraImport": true,
-        "detail": "contextlib",
+        "detail": "services.opportunity",
         "documentation": {}
     },
     {
@@ -462,11 +847,29 @@
         "documentation": {}
     },
     {
+        "label": "api_router",
+        "kind": 5,
+        "importPath": "src.api.main_router",
+        "description": "src.api.main_router",
+        "peekOfCode": "api_router = APIRouter(API_URL)\napi_router.include_router(opportunity_router)",
+        "detail": "src.api.main_router",
+        "documentation": {}
+    },
+    {
+        "label": "opportunity_router",
+        "kind": 5,
+        "importPath": "src.api.opportunity",
+        "description": "src.api.opportunity",
+        "peekOfCode": "opportunity_router = APIRouter(\n    \"opportunities\"\n)\n@opportunity_router.get(\"/get_all\", description=\"Получение всех возможностей (с опциональной фильтрацией)\")\nasync def get_all_opps(request: Request, filters: OpportunityFiltersDTO = Depends()):\n    ...",
+        "detail": "src.api.opportunity",
+        "documentation": {}
+    },
+    {
         "label": "DatabaseSettings",
         "kind": 6,
         "importPath": "src.core.settings.db_settings",
         "description": "src.core.settings.db_settings",
-        "peekOfCode": "class DatabaseSettings(BaseModel):\n    user: str\n    password: SecretStr\n    host: str\n    port: int\n    connection_url: str = ...",
+        "peekOfCode": "class DatabaseSettings(BaseModel):\n    user: str\n    password: SecretStr\n    host: str\n    port: int\n    driver: str\n    db_name: str\n    @property\n    def db_conn_link(self) -> str:\n        return f\"{self.driver}://{self.user}:{self.password.get_secret_value()}@{self.host}:{self.port}/{self.db_name}\"",
         "detail": "src.core.settings.db_settings",
         "documentation": {}
     },
@@ -475,7 +878,7 @@
         "kind": 6,
         "importPath": "src.core.config",
         "description": "src.core.config",
-        "peekOfCode": "class Config(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file=ENV_FILE_NAME,\n        env_file_encoding=ENV_FILE_ENCODING,\n        env_nested_delimiter=ENV_NESTED_DELIMETER,\n    )\n    db: DatabaseSettings\n    default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)\n    default_file_type: str = \"application/octet-stream\"\nsettings = Config()",
+        "peekOfCode": "class Config(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file=ENV_FILE_NAME,\n        env_file_encoding=ENV_FILE_ENCODING,\n        env_nested_delimiter=ENV_NESTED_DELIMETER,\n    )\n    db: DatabaseSettings\n    default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)\n    default_file_type: str = \"application/octet-stream\"\n    default_host: str = \"localhost\"",
         "detail": "src.core.config",
         "documentation": {}
     },
@@ -493,8 +896,107 @@
         "kind": 6,
         "importPath": "src.core.const",
         "description": "src.core.const",
-        "peekOfCode": "class VerificationMethod(StrEnum):\n    EMAIL = auto().lower()\n    INN = auto().lower()\n    SOCIAL = auto().lower()",
+        "peekOfCode": "class VerificationMethod(StrEnum):\n    EMAIL = auto().lower()\n    INN = auto().lower()\n    SOCIAL = auto().lower()\nAPI_URL=\"/api/v1\"",
         "detail": "src.core.const",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_FILE_NAME",
+        "kind": 5,
+        "importPath": "src.core.const",
+        "description": "src.core.const",
+        "peekOfCode": "ENV_FILE_NAME = \".env\"\nENV_FILE_ENCODING = \"utf-8\"\nENV_NESTED_DELIMETER = \"__\"\nDEFAULT_TIMEZONE = \"Europe/Moscow\"\nORJSON_PROPERTIES_MASK = (\n    orjson.OPT_INDENT_2\n    | orjson.OPT_SERIALIZE_NUMPY\n    | orjson.OPT_SERIALIZE_DATACLASS\n    | orjson.OPT_OMIT_MICROSECONDS\n)",
+        "detail": "src.core.const",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_FILE_ENCODING",
+        "kind": 5,
+        "importPath": "src.core.const",
+        "description": "src.core.const",
+        "peekOfCode": "ENV_FILE_ENCODING = \"utf-8\"\nENV_NESTED_DELIMETER = \"__\"\nDEFAULT_TIMEZONE = \"Europe/Moscow\"\nORJSON_PROPERTIES_MASK = (\n    orjson.OPT_INDENT_2\n    | orjson.OPT_SERIALIZE_NUMPY\n    | orjson.OPT_SERIALIZE_DATACLASS\n    | orjson.OPT_OMIT_MICROSECONDS\n)\nclass VerificationMethod(StrEnum):",
+        "detail": "src.core.const",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_NESTED_DELIMETER",
+        "kind": 5,
+        "importPath": "src.core.const",
+        "description": "src.core.const",
+        "peekOfCode": "ENV_NESTED_DELIMETER = \"__\"\nDEFAULT_TIMEZONE = \"Europe/Moscow\"\nORJSON_PROPERTIES_MASK = (\n    orjson.OPT_INDENT_2\n    | orjson.OPT_SERIALIZE_NUMPY\n    | orjson.OPT_SERIALIZE_DATACLASS\n    | orjson.OPT_OMIT_MICROSECONDS\n)\nclass VerificationMethod(StrEnum):\n    EMAIL = auto().lower()",
+        "detail": "src.core.const",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_TIMEZONE",
+        "kind": 5,
+        "importPath": "src.core.const",
+        "description": "src.core.const",
+        "peekOfCode": "DEFAULT_TIMEZONE = \"Europe/Moscow\"\nORJSON_PROPERTIES_MASK = (\n    orjson.OPT_INDENT_2\n    | orjson.OPT_SERIALIZE_NUMPY\n    | orjson.OPT_SERIALIZE_DATACLASS\n    | orjson.OPT_OMIT_MICROSECONDS\n)\nclass VerificationMethod(StrEnum):\n    EMAIL = auto().lower()\n    INN = auto().lower()",
+        "detail": "src.core.const",
+        "documentation": {}
+    },
+    {
+        "label": "ORJSON_PROPERTIES_MASK",
+        "kind": 5,
+        "importPath": "src.core.const",
+        "description": "src.core.const",
+        "peekOfCode": "ORJSON_PROPERTIES_MASK = (\n    orjson.OPT_INDENT_2\n    | orjson.OPT_SERIALIZE_NUMPY\n    | orjson.OPT_SERIALIZE_DATACLASS\n    | orjson.OPT_OMIT_MICROSECONDS\n)\nclass VerificationMethod(StrEnum):\n    EMAIL = auto().lower()\n    INN = auto().lower()\n    SOCIAL = auto().lower()",
+        "detail": "src.core.const",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityDict",
+        "kind": 5,
+        "importPath": "src.core.types",
+        "description": "src.core.types",
+        "peekOfCode": "OpportunityDict = dict[str, Union[str, int, datetime, Decimal, UUID]]\nOpportunityList = tuple[list[OpportunityDTO], int]",
+        "detail": "src.core.types",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityList",
+        "kind": 5,
+        "importPath": "src.core.types",
+        "description": "src.core.types",
+        "peekOfCode": "OpportunityList = tuple[list[OpportunityDTO], int]",
+        "detail": "src.core.types",
+        "documentation": {}
+    },
+    {
+        "label": "DTO",
+        "kind": 6,
+        "importPath": "src.database.dto.base",
+        "description": "src.database.dto.base",
+        "peekOfCode": "class DTO(BaseModel):\n    model_config = ConfigDict(from_attributes=True)",
+        "detail": "src.database.dto.base",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityDTO",
+        "kind": 6,
+        "importPath": "src.database.dto.opportunity",
+        "description": "src.database.dto.opportunity",
+        "peekOfCode": "class OpportunityDTO(DTO):\n    id: Annotated[UUID4, Field(frozen=True)]\n    title: Annotated[str | None, Field(max_length=255)]\n    description: str | None\n    company_id: UUID4\n    opportunity_type: Annotated[str, Field(max_length=30, alias=\"type\")]\n    work_format: Annotated[Literal[\"vacancy\", \"internship\", \"mentoring\", \"event\"], Field(max_length=30)]\n    location: Annotated[str | None, Field(max_length=255)]\n    latitude: Decimal | None  ## TODO: значения через API Яндекс.Карты стоит брать\n    longitude: Decimal | None",
+        "detail": "src.database.dto.opportunity",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityEditDTO",
+        "kind": 6,
+        "importPath": "src.database.dto.opportunity",
+        "description": "src.database.dto.opportunity",
+        "peekOfCode": "class OpportunityEditDTO(DTO):\n    title: Annotated[str | None, Field(max_length=255)]\n    description: str | None\n    opportunity_type: Annotated[str, Field(max_length=30, alias=\"type\")]\n    work_format: Annotated[str, Field(max_length=30)]\n    location: Annotated[str | None, Field(max_length=255)]\n    latitude: Decimal | None\n    longitude: Decimal | None\n    salary_from: int | None\n    salary_to: int | None",
+        "detail": "src.database.dto.opportunity",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityFiltersDTO",
+        "kind": 6,
+        "importPath": "src.database.dto.opportunity",
+        "description": "src.database.dto.opportunity",
+        "peekOfCode": "class OpportunityFiltersDTO(DTO):\n    status: Literal[\"active\", \"closed\"] | None = Query(None, description=\"Статус возможности\")\n    work_format: Literal[\"vacancy\", \"internship\", \"mentoring\", \"event\"] | None = Query(None, description=\"Формат работы/участия\")\n    salary_from: int | None = Query(None, description=\"Минимум оплаты\")\n    salary_to: int | None = Query(None, description=\"Максимум оплаты\")\n    ...",
+        "detail": "src.database.dto.opportunity",
         "documentation": {}
     },
     {
@@ -511,7 +1013,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Users(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    phone: Mapped[str] = mapped_column(String(20), nullable=False, unique=True, index=True)\n    email: Mapped[str] = mapped_column(String(100), nullable=False, unique=True, index=True)\n    display_name: Mapped[str] = mapped_column(String(150), nullable=False)\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False)\n    email_verified: Mapped[bool] = mapped_column(Boolean, default=False)\n    is_blocked: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), nullable=False)\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))",
+        "peekOfCode": "class Users(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    phone: Mapped[str] = mapped_column(\n        String(20), nullable=False, unique=True, index=True\n    )\n    email: Mapped[str] = mapped_column(\n        String(100), nullable=False, unique=True, index=True\n    )",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -520,7 +1022,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Verification_Codes(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    code: Mapped[str] = mapped_column(String(6), nullable=False)\n    purpose: Mapped[str] = mapped_column(String(20), nullable=False) ## \"login\", \"email_verify\"\n    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)\n    is_used: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), nullable=False)\nclass JWT_Token_Blacklist(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))",
+        "peekOfCode": "class Verification_Codes(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    user_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False\n    )\n    code: Mapped[str] = mapped_column(String(6), nullable=False)\n    purpose: Mapped[str] = mapped_column(\n        String(20), nullable=False\n    )  ## \"login\", \"email_verify\"\n    expires_at: Mapped[datetime] = mapped_column(",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -529,7 +1031,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class JWT_Token_Blacklist(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    jwt_id: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)\n    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), nullable=False)\nclass Roles(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(10), unique=True, nullable=False) # admin, guest, applicant, employer\nclass Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)",
+        "peekOfCode": "class JWT_Token_Blacklist(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    jwt_id: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)\n    expires_at: Mapped[datetime] = mapped_column(\n        DateTime(timezone=True), nullable=False\n    )\n    created_at: Mapped[datetime] = mapped_column(\n        DateTime(timezone=True),",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -538,7 +1040,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Roles(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(10), unique=True, nullable=False) # admin, guest, applicant, employer\nclass Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    resource: Mapped[str] = mapped_column(String(100), nullable=False)\n    permission: Mapped[str] = mapped_column(String(10), nullable=False)\n    __table_args__ = (\n        UniqueConstraint('resource', 'permission', name='uq_resource_permission'),\n    )",
+        "peekOfCode": "class Roles(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(\n        String(10), unique=True, nullable=False\n    )  # admin, guest, applicant, employer\nclass Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    resource: Mapped[str] = mapped_column(String(100), nullable=False)\n    permission: Mapped[str] = mapped_column(String(10), nullable=False)\n    __table_args__ = (",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -547,7 +1049,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    resource: Mapped[str] = mapped_column(String(100), nullable=False)\n    permission: Mapped[str] = mapped_column(String(10), nullable=False)\n    __table_args__ = (\n        UniqueConstraint('resource', 'permission', name='uq_resource_permission'),\n    )\nclass Role_Permissions(Base):\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\"), nullable=False)\n    permission_id: Mapped[int] = mapped_column(ForeignKey(\"permissions.id\", ondelete=\"CASCADE\"), nullable=False)",
+        "peekOfCode": "class Permissions(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    resource: Mapped[str] = mapped_column(String(100), nullable=False)\n    permission: Mapped[str] = mapped_column(String(10), nullable=False)\n    __table_args__ = (\n        UniqueConstraint(\"resource\", \"permission\", name=\"uq_resource_permission\"),\n    )\nclass Role_Permissions(Base):\n    role_id: Mapped[int] = mapped_column(\n        ForeignKey(\"roles.id\", ondelete=\"CASCADE\"), nullable=False",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -556,7 +1058,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Role_Permissions(Base):\n    role_id: Mapped[int] = mapped_column(ForeignKey(\"roles.id\", ondelete=\"CASCADE\"), nullable=False)\n    permission_id: Mapped[int] = mapped_column(ForeignKey(\"permissions.id\", ondelete=\"CASCADE\"), nullable=False)\n    __table_args__ = (\n        PrimaryKeyConstraint(\"role_id\", \"permission_id\"),\n    )\nclass Applicants(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False)\n    first_name: Mapped[str] = mapped_column(String(100))",
+        "peekOfCode": "class Role_Permissions(Base):\n    role_id: Mapped[int] = mapped_column(\n        ForeignKey(\"roles.id\", ondelete=\"CASCADE\"), nullable=False\n    )\n    permission_id: Mapped[int] = mapped_column(\n        ForeignKey(\"permissions.id\", ondelete=\"CASCADE\"), nullable=False\n    )\n    __table_args__ = (PrimaryKeyConstraint(\"role_id\", \"permission_id\"),)\nclass Applicants(Base):\n    id: Mapped[UUID] = mapped_column(",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -565,7 +1067,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Applicants(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False)\n    first_name: Mapped[str] = mapped_column(String(100))\n    middle_name: Mapped[str] = mapped_column(String(100))\n    last_name: Mapped[str] = mapped_column(String(100))\n    university: Mapped[str] = mapped_column(String(255))\n    graduation_year: Mapped[int] = mapped_column(Integer)\n    current_education_year: Mapped[int] = mapped_column(Integer)\n    about: Mapped[str] = mapped_column(String(255))",
+        "peekOfCode": "class Applicants(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    user_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False\n    )\n    first_name: Mapped[str] = mapped_column(String(100))\n    middle_name: Mapped[str] = mapped_column(String(100))\n    last_name: Mapped[str] = mapped_column(String(100))",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -574,7 +1076,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class User_Documents(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"), nullable=False, index=True)\n    doc_type: Mapped[str] = mapped_column(String(50), nullable=False, index=True)\n    title: Mapped[str] = mapped_column(String(100), nullable=False)\n    description: Mapped[str] = mapped_column(String(255))\n    file_url: Mapped[str] = mapped_column(Text, nullable=False)\n    file_name: Mapped[str] = mapped_column(String(255))\n    file_size: Mapped[int] = mapped_column(Integer, nullable=False)\n    mime_type: Mapped[str] = mapped_column(String(100), nullable=False, default=settings.default_file_type)",
+        "peekOfCode": "class User_Documents(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    user_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"),\n        nullable=False,\n        index=True,\n    )\n    doc_type: Mapped[str] = mapped_column(String(50), nullable=False, index=True)\n    title: Mapped[str] = mapped_column(String(100), nullable=False)\n    description: Mapped[str] = mapped_column(String(255))",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -583,7 +1085,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Companies(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    name: Mapped[str] = mapped_column(String(255), nullable=False, index=True)\n    description: Mapped[str] = mapped_column(Text)\n    website: Mapped[str] = mapped_column(Text)\n    industry: Mapped[str] = mapped_column(String(100))\n    staff_size: Mapped[str] = mapped_column(String(10))\n    location_city: Mapped[str] = mapped_column(String(100))\n    location_address: Mapped[str] = mapped_column(Text)\n    logo_url: Mapped[str] = mapped_column(Text)",
+        "peekOfCode": "class Companies(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    name: Mapped[str] = mapped_column(String(255), nullable=False, index=True)\n    description: Mapped[str] = mapped_column(Text)\n    website: Mapped[str] = mapped_column(Text)\n    industry: Mapped[str] = mapped_column(String(100))\n    staff_size: Mapped[str] = mapped_column(String(10))\n    location_city: Mapped[str] = mapped_column(String(100))",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -592,7 +1094,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Employers(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[UUID] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\"))\n    company_id: Mapped[UUID] = mapped_column(ForeignKey(\"companies.id\"), nullable=False)\n    position: Mapped[str] = mapped_column(String(100))\n    # is_approved: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\nclass Opportunities(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    title: Mapped[str] = mapped_column(String(255), nullable=False)",
+        "peekOfCode": "class Employers(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    user_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"users.id\", ondelete=\"CASCADE\", onupdate=\"CASCADE\")\n    )\n    company_id: Mapped[UUID] = mapped_column(ForeignKey(\"companies.id\"), nullable=False)\n    position: Mapped[str] = mapped_column(String(100))\n    # is_approved: Mapped[bool] = mapped_column(Boolean, default=False)",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -601,7 +1103,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Opportunities(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    title: Mapped[str] = mapped_column(String(255), nullable=False)\n    description: Mapped[str] = mapped_column(Text, nullable=False)\n    company_id: Mapped[UUID] = mapped_column(ForeignKey(\"companies.id\", onupdate=\"CASCADE\"), nullable=False)\n    type: Mapped[str] = mapped_column(String(30), nullable=False)\n    work_format: Mapped[str] = mapped_column(String(30))\n    location: Mapped[str] = mapped_column(String(255))\n    latitude: Mapped[float] = mapped_column(Numeric(10, 8))\n    longitude: Mapped[float] = mapped_column(Numeric(11, 8))",
+        "peekOfCode": "class Opportunities(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    title: Mapped[str] = mapped_column(String(255), nullable=False)\n    description: Mapped[str] = mapped_column(Text, nullable=False)\n    company_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"companies.id\", onupdate=\"CASCADE\"), nullable=False\n    )\n    opportunity_type: Mapped[str] = mapped_column(String(30), nullable=False, name=\"type\")",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -610,7 +1112,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Curators(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", onupdate=\"CASCADE\", ondelete=\"CASCADE\"))\n    university: Mapped[str] = mapped_column(String(255))\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\nclass Tags(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(100), nullable=False, index=True)\n    category: Mapped[str] = mapped_column(String(50))  # skill, level, employment_type\n    is_system: Mapped[bool] = mapped_column(Boolean, default=False)",
+        "peekOfCode": "class Curators(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    user_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"users.id\", onupdate=\"CASCADE\", ondelete=\"CASCADE\")\n    )\n    university: Mapped[str] = mapped_column(String(255))\n    created_at: Mapped[datetime] = mapped_column(\n        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -619,7 +1121,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Tags(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(100), nullable=False, index=True)\n    category: Mapped[str] = mapped_column(String(50))  # skill, level, employment_type\n    is_system: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\n    __table_args__ = (\n        CheckConstraint(\"category IN ('skill', 'level', 'employment_type')\", name=\"check_tag_category_valid\")\n    )\nclass OpportunityTags(Base):",
+        "peekOfCode": "class Tags(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    name: Mapped[str] = mapped_column(String(100), nullable=False, index=True)\n    category: Mapped[str] = mapped_column(String(50))  # skill, level, employment_type\n    is_system: Mapped[bool] = mapped_column(Boolean, default=False)\n    created_at: Mapped[datetime] = mapped_column(\n        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)\n    )\n    __table_args__ = CheckConstraint(\n        \"category IN ('skill', 'level', 'employment_type')\",",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -628,7 +1130,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class OpportunityTags(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    opportunity_id: Mapped[UUID] = mapped_column(ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"))\n    tag_id: Mapped[int] = mapped_column(ForeignKey(\"tags.id\", ondelete=\"CASCADE\"))\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\nclass Applications(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    opportunity_id: Mapped[UUID] = mapped_column(ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"), nullable=False)\n    applicant_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    status: Mapped[str] = mapped_column(String(50), default=\"pending\")",
+        "peekOfCode": "class OpportunityTags(Base):\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)\n    opportunity_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\")\n    )\n    tag_id: Mapped[int] = mapped_column(ForeignKey(\"tags.id\", ondelete=\"CASCADE\"))\n    created_at: Mapped[datetime] = mapped_column(\n        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)\n    )\nclass Applications(Base):",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -637,7 +1139,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Applications(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    opportunity_id: Mapped[UUID] = mapped_column(ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"), nullable=False)\n    applicant_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    status: Mapped[str] = mapped_column(String(50), default=\"pending\")\n    cover_letter: Mapped[str] = mapped_column(Text)\n    applied_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), onupdate=lambda: datetime.now(settings.default_timezone))\n    __table_args__ = (\n        CheckConstraint(\"status IN ('pending', 'accepted', 'rejected', 'reserved')\", name=\"check_application_status_valid\"),",
+        "peekOfCode": "class Applications(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    opportunity_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"), nullable=False\n    )\n    applicant_id: Mapped[int] = mapped_column(\n        ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False\n    )",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -646,7 +1148,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Favorites(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    opportunity_id: Mapped[UUID] = mapped_column(ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"), nullable=False)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\n    __table_args__ = (\n        UniqueConstraint(\"user_id\", \"opportunity_id\", name=\"unique_favorite_per_user\"),\n    )\nclass Connections(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))",
+        "peekOfCode": "class Favorites(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    user_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False\n    )\n    opportunity_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"opportunities.id\", ondelete=\"CASCADE\"), nullable=False\n    )",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -655,7 +1157,7 @@
         "kind": 6,
         "importPath": "src.database.models.models",
         "description": "src.database.models.models",
-        "peekOfCode": "class Connections(Base):\n    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\"))\n    user_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)  # тот, кто отправил заявку на добавление\n    friend_id: Mapped[int] = mapped_column(ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)  # тот, кто полуичл заявку на добавление\n    status: Mapped[str] = mapped_column(String(20), default=\"pending\")\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone))\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone), onupdate=lambda: datetime.now(settings.default_timezone))\n    __table_args__ = (\n        CheckConstraint(\"user_id != friend_id\", name=\"check_not_self_connection\"),\n        CheckConstraint(\"status IN ('pending', 'accepted')\", name=\"check_connection_status_valid\"),",
+        "peekOfCode": "class Connections(Base):\n    id: Mapped[UUID] = mapped_column(\n        UUID, primary_key=True, default=uuid4, server_default=text(\"get_random_uuid()\")\n    )\n    user_id: Mapped[UUID] = mapped_column(\n        ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False\n    )  # тот, кто отправил заявку на добавление\n    friend_id: Mapped[int] = mapped_column(\n        ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False\n    )  # тот, кто полуичл заявку на добавление",
         "detail": "src.database.models.models",
         "documentation": {}
     },
@@ -664,8 +1166,26 @@
         "kind": 6,
         "importPath": "src.database.db",
         "description": "src.database.db",
-        "peekOfCode": "class Database:\n    ...",
+        "peekOfCode": "class Database:\n    def __init__(\n        self,\n        conn_url: str,\n        echo: bool = False,\n        echo_pool: bool = False,\n        pool_size: int = 10,\n        pool_pre_ping: bool = False,\n    ):\n        self.url = conn_url",
         "detail": "src.database.db",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceBase",
+        "kind": 6,
+        "importPath": "src.services.base",
+        "description": "src.services.base",
+        "peekOfCode": "class ServiceBase(ABC):\n    _db = Database(settings.db.db_conn_link)",
+        "detail": "src.services.base",
+        "documentation": {}
+    },
+    {
+        "label": "OpportunityMaster",
+        "kind": 6,
+        "importPath": "src.services.opportunity",
+        "description": "src.services.opportunity",
+        "peekOfCode": "class OpportunityMaster(ServiceBase):\n    async def get_all_with_filters(\n        self, filters: list, page: int = 1, page_records_count: int = 10\n    ) -> OpportunityList:\n        async with self._db.get_session() as session:\n            count_result = await session.execute(select(func.count(Opportunities.id)))\n            total_count = count_result.scalar_one()\n            offset = (page - 1) * page_records_count\n            query = (\n                select(Opportunities)",
+        "detail": "src.services.opportunity",
         "documentation": {}
     }
 ]
