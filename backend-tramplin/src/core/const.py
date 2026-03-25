@@ -15,12 +15,11 @@ ORJSON_PROPERTIES_MASK = (
     | orjson.OPT_OMIT_MICROSECONDS
 )
 
+
 class VerificationMethod(StrEnum):
     EMAIL = auto().lower()
     INN = auto().lower()
     SOCIAL = auto().lower()
 
-API_URL="/api/v1"
 
-
-
+API_URL = "/api/v1"

@@ -6,4 +6,4 @@ from uuid import UUID
 from database.dto.opportunity import OpportunityDTO
 
 OpportunityDict = dict[str, Union[str, int, datetime, Decimal, UUID]]
-OpportunityList = tuple[list[OpportunityDTO], int]
+OpportunityListWithQuantity = tuple[list[OpportunityDTO], int]

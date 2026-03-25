@@ -6,7 +6,7 @@ from sqlalchemy import (Boolean, CheckConstraint, DateTime, Enum, ForeignKey,
                         Integer, Numeric, PrimaryKeyConstraint, String, Text,
                         UniqueConstraint, text)
 from sqlalchemy.dialects.postgresql import JSONB
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from core.config import settings
 from core.const import VerificationMethod
@@ -191,7 +191,7 @@ class Companies(Base):
     verified_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False
     )
-    verified_by: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    verified_by: Mapped[UUID] = mapped_column(ForeignKey("users.id"), nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda: datetime.now(settings.default_timezone),
@@ -228,8 +228,20 @@ class Opportunities(Base):
     company_id: Mapped[UUID] = mapped_column(
         ForeignKey("companies.id", onupdate="CASCADE"), nullable=False
     )
-    opportunity_type: Mapped[str] = mapped_column(String(30), nullable=False, name="type")
+    opportunity_type: Mapped[str] = mapped_column(
+        String(30), nullable=False, name="type"
+    )
     work_format: Mapped[str] = mapped_column(String(30))
+    employment: Mapped[str] = mapped_column(String(10))
+    level: Mapped[str] = mapped_column(String(10))
+
+    tags: Mapped[list["Tags"]] = relationship(
+        secondary="opportunity_tags",
+        back_populates="opportunities",
+        lazy="selectin",
+        viewonly=False,
+    )
+
     location: Mapped[str] = mapped_column(String(255))
     latitude: Mapped[float] = mapped_column(Numeric(10, 8))
     longitude: Mapped[float] = mapped_column(Numeric(11, 8))
@@ -265,10 +277,45 @@ class Opportunities(Base):
             "status IN ('active', 'closed', 'draft', 'pending_moderation')",
             name="check_status_valid",
         ),
+        CheckConstraint("salary_from <= salary_to", name="check_valid_salary_range"),
         CheckConstraint(
-            "salary_from <= salary_to",
-            name="check_valid_salary_range"
-        )
+            "employment IN ('full', 'partial')", name="check_employment_valid"
+        ),
+        CheckConstraint(
+            "level IN ('intern', 'junior', 'middle', 'senior')",
+            name="check_level_valid",
+        ),
+    )
+
+
+class Tags(Base):
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    name: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+    category: Mapped[str] = mapped_column(String(50))  # skill, level, employment_type
+    is_system: Mapped[bool] = mapped_column(Boolean, default=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+    )
+
+    opportunities: Mapped[list["Opportunities"]] = relationship(
+        secondary="opportunity_tags", back_populates="tags", lazy="selectin"
+    )
+
+    __table_args__ = CheckConstraint(
+        "category IN ('skill', 'level', 'employment_type')",
+        name="check_tag_category_valid",
+    )
+
+
+class Opportunity_Tags(Base):
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    opportunity_id: Mapped[UUID] = mapped_column(
+        ForeignKey("opportunities.id", ondelete="CASCADE")
+    )
+    tag_id: Mapped[int] = mapped_column(ForeignKey("tags.id", ondelete="CASCADE"))
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
     )
 
 
@@ -285,33 +332,6 @@ class Curators(Base):
     )
 
 
-class Tags(Base):
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    name: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
-    category: Mapped[str] = mapped_column(String(50))  # skill, level, employment_type
-    is_system: Mapped[bool] = mapped_column(Boolean, default=False)
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
-    )
-
-    __table_args__ = CheckConstraint(
-        "category IN ('skill', 'level', 'employment_type')",
-        name="check_tag_category_valid",
-    )
-
-
-class OpportunityTags(Base):
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    opportunity_id: Mapped[UUID] = mapped_column(
-        ForeignKey("opportunities.id", ondelete="CASCADE")
-    )
-    tag_id: Mapped[int] = mapped_column(ForeignKey("tags.id", ondelete="CASCADE"))
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
-    )
-
-
 class Applications(Base):
 
     id: Mapped[UUID] = mapped_column(
@@ -320,7 +340,7 @@ class Applications(Base):
     opportunity_id: Mapped[UUID] = mapped_column(
         ForeignKey("opportunities.id", ondelete="CASCADE"), nullable=False
     )
-    applicant_id: Mapped[int] = mapped_column(
+    applicant_id: Mapped[UUID] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), nullable=False
     )
     status: Mapped[str] = mapped_column(String(50), default="pending")
@@ -373,7 +393,7 @@ class Connections(Base):
     user_id: Mapped[UUID] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), nullable=False
     )  # тот, кто отправил заявку на добавление
-    friend_id: Mapped[int] = mapped_column(
+    friend_id: Mapped[UUID] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), nullable=False
     )  # тот, кто полуичл заявку на добавление
     status: Mapped[str] = mapped_column(String(20), default="pending")

@@ -3,7 +3,7 @@ from uuid import UUID
 from base import ServiceBase
 from sqlalchemy import delete, func, insert, select, update
 
-from core.types import OpportunityDict, OpportunityList
+from core.types import OpportunityDict, OpportunityListWithQuantity
 from database.dto.opportunity import OpportunityDTO, OpportunityEditDTO
 from database.models.models import Opportunities
 
@@ -12,7 +12,7 @@ class OpportunityMaster(ServiceBase):
 
     async def get_all_with_filters(
         self, filters: list, page: int = 1, page_records_count: int = 10
-    ) -> OpportunityList:
+    ) -> OpportunityListWithQuantity:
 
         async with self._db.get_session() as session:
 
@@ -95,3 +95,6 @@ class OpportunityMaster(ServiceBase):
             await session.commit()
 
             return total_count
+
+    async def add_tag(): ...  ## TODO: с тегами тут доделать
+    async def remove_tag(): ...

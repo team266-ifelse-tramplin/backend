@@ -1,18 +1,30 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import Annotated, Literal
+
 from base import DTO
-from pydantic import UUID4, Field, field_serializer
 from fastapi import Query
+from pydantic import UUID4, Field, field_serializer
 
 
 class OpportunityDTO(DTO):
     id: Annotated[UUID4, Field(frozen=True)]
-    title: Annotated[str | None, Field(max_length=255)]
-    description: str | None
+    title: Annotated[str, Field(max_length=255)]
+    description: str
     company_id: UUID4
     opportunity_type: Annotated[str, Field(max_length=30, alias="type")]
-    work_format: Annotated[Literal["vacancy", "internship", "mentoring", "event"], Field(max_length=30)]
+    work_format: (
+        Annotated[
+            Literal["vacancy", "internship", "mentoring", "event"], Field(max_length=30)
+        ]
+        | None
+    )
+    employment: Annotated[Literal["full", "partial"], Field(max_length=15)] | None
+    level: (
+        Annotated[Literal["intern", "junior", "middle", "senior"], Field(max_length=10)]
+        | None
+    )
+    tags: list[str] | None
     location: Annotated[str | None, Field(max_length=255)]
     latitude: Decimal | None  ## TODO: значения через API Яндекс.Карты стоит брать
     longitude: Decimal | None
@@ -43,6 +55,11 @@ class OpportunityEditDTO(DTO):
     description: str | None
     opportunity_type: Annotated[str, Field(max_length=30, alias="type")]
     work_format: Annotated[str, Field(max_length=30)]
+    employment: Annotated[Literal["full", "partial"], Field(max_length=15)]
+    level: (
+        Annotated[Literal["intern", "junior", "middle", "senior"], Field(max_length=10)]
+        | None
+    )
     location: Annotated[str | None, Field(max_length=255)]
     latitude: Decimal | None
     longitude: Decimal | None
@@ -56,10 +73,19 @@ class OpportunityEditDTO(DTO):
 
 
 class OpportunityFiltersDTO(DTO):
-    status: Literal["active", "closed"] | None = Query(None, description="Статус возможности")
-    work_format: Literal["vacancy", "internship", "mentoring", "event"] | None = Query(None, description="Формат работы/участия")
+    status: Literal["active", "closed"] | None = Query(
+        None, description="Статус возможности"
+    )
+    opportunity_type: Literal["vacancy", "internship", "mentoring", "event"] | None = (
+        Query(None, description="Тип возможности")
+    )
+    work_format: Literal["office", "hybrid", "remote"] | None = Query(
+        None, description="Формат работы/участия"
+    )
+    level: Literal["intern", "junior", "middle", "senior"] | None = Query(
+        None, description="Уровень специалиста"
+    )
     salary_from: int | None = Query(None, description="Минимум оплаты")
     salary_to: int | None = Query(None, description="Максимум оплаты")
-    ...
-
-    
+    employment: str | None = Query(None, description="Полная / частичная занятость")
+    location: str | None = Query(None, description="Место проведения")

@@ -3,7 +3,7 @@ from zoneinfo import ZoneInfo
 from const import (DEFAULT_TIMEZONE, ENV_FILE_ENCODING, ENV_FILE_NAME,
                    ENV_NESTED_DELIMETER)
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from settings.db_settings import DatabaseSettings
+from pydantic import SecretStr
 
 
 class Config(BaseSettings):
@@ -14,14 +14,23 @@ class Config(BaseSettings):
         env_nested_delimiter=ENV_NESTED_DELIMETER,
     )
 
-    db: DatabaseSettings
-
     default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)
     default_file_type: str = "application/octet-stream"
 
     default_host: str = "localhost"
     default_port: str = "8000"
     server_reload: bool = True
+
+    postgres_user: str
+    postgres_password: SecretStr
+    postgres_host: str
+    postgres_port: int
+    postgres_driver: str
+    postgres_db: str
+
+    @property
+    def db_conn_link(self) -> str:
+        return f"{self.postgres_driver}://{self.postgres_user}:{self.postgres_password.get_secret_value()}@{self.postgres_host}:{self.postgres_port}/{self.postgres_db}"
 
 
 settings = Config()
