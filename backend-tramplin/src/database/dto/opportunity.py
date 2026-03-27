@@ -2,9 +2,10 @@ from datetime import datetime
 from decimal import Decimal
 from typing import Annotated, Literal
 
-from base import DTO
 from fastapi import Query
 from pydantic import UUID4, Field, field_serializer
+
+from database.dto.base import DTO
 
 
 class OpportunityDTO(DTO):

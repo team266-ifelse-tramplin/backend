@@ -1,15 +1,15 @@
 from datetime import datetime
-from uuid import UUID, uuid4
+from uuid import uuid4
 
-from models.base import Base
-from sqlalchemy import (Boolean, CheckConstraint, DateTime, Enum, ForeignKey,
-                        Integer, Numeric, PrimaryKeyConstraint, String, Text,
-                        UniqueConstraint, text)
+from sqlalchemy import (UUID, Boolean, CheckConstraint, DateTime, Enum,
+                        ForeignKey, Integer, Numeric, PrimaryKeyConstraint,
+                        String, Text, UniqueConstraint, text)
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from core.config import settings
 from core.const import VerificationMethod
+from database.models.base import Base
 
 ## TODO: relationship подумать
 
@@ -302,9 +302,11 @@ class Tags(Base):
         secondary="opportunity_tags", back_populates="tags", lazy="selectin"
     )
 
-    __table_args__ = CheckConstraint(
-        "category IN ('skill', 'level', 'employment_type')",
-        name="check_tag_category_valid",
+    __table_args__ = (
+        CheckConstraint(
+            "category IN ('skill', 'level', 'employment_type')",
+            name="check_tag_category_valid",
+        ),
     )
 
 

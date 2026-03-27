@@ -1,9 +1,10 @@
 from zoneinfo import ZoneInfo
 
-from const import (DEFAULT_TIMEZONE, ENV_FILE_ENCODING, ENV_FILE_NAME,
-                   ENV_NESTED_DELIMETER)
-from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import SecretStr
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+from core.const import (DEFAULT_TIMEZONE, ENV_FILE_ENCODING, ENV_FILE_NAME,
+                        ENV_NESTED_DELIMETER)
 
 
 class Config(BaseSettings):
@@ -18,7 +19,7 @@ class Config(BaseSettings):
     default_file_type: str = "application/octet-stream"
 
     default_host: str = "localhost"
-    default_port: str = "8000"
+    default_port: int = 8000
     server_reload: bool = True
 
     postgres_user: str

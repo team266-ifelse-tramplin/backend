@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
 import orjson
-from sqlalchemy.ext.asyncio import (Asyn, AsyncEngine, AsyncSession,
+from sqlalchemy.ext.asyncio import (AsyncEngine, AsyncSession,
                                     async_sessionmaker, create_async_engine)
 
 from core.config import settings
@@ -34,7 +34,7 @@ class Database:
         )
 
         self.__session_maker = async_sessionmaker(
-            self._engine, expire_on_commit=True, autoflush=False
+            self.__engine, expire_on_commit=True, autoflush=False
         )
 
     @asynccontextmanager
