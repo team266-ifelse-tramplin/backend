@@ -13,10 +13,15 @@ class OpportunityDTO(DTO):
     title: Annotated[str, Field(max_length=255)]
     description: str
     company_id: UUID4
-    opportunity_type: Annotated[str, Field(max_length=30, alias="type")]
-    work_format: (
+    opportunity_type: (
         Annotated[
             Literal["vacancy", "internship", "mentoring", "event"], Field(max_length=30)
+        ]
+        | None
+    )
+    work_format: (
+        Annotated[
+            Literal['office', 'hybrid', 'remote'], Field(max_length=30)
         ]
         | None
     )
@@ -25,7 +30,7 @@ class OpportunityDTO(DTO):
         Annotated[Literal["intern", "junior", "middle", "senior"], Field(max_length=10)]
         | None
     )
-    tags: list[str] | None
+    tags_data: list[str] | None
     location: Annotated[str | None, Field(max_length=255)]
     latitude: Decimal | None  ## TODO: значения через API Яндекс.Карты стоит брать
     longitude: Decimal | None

@@ -242,6 +242,10 @@ class Opportunities(Base):
         viewonly=False,
     )
 
+    @property
+    def tags_data(self) -> list[str]:
+        return [tag.name for tag in self.tags]
+
     location: Mapped[str] = mapped_column(String(255))
     latitude: Mapped[float] = mapped_column(Numeric(10, 8))
     longitude: Mapped[float] = mapped_column(Numeric(11, 8))

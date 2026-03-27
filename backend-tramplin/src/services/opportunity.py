@@ -26,7 +26,7 @@ class OpportunityMaster(ServiceBase):
 
         async with self._db.get_session() as session:
             try:
-                query = select(Opportunities).limit(page_records_count)
+                query = select(Opportunities)
                 count_query = select(func.count(Opportunities.id))
 
                 if filters_list:
@@ -37,13 +37,15 @@ class OpportunityMaster(ServiceBase):
                 total_count = count_result.scalar_one()
 
                 offset = (page - 1) * page_records_count
-                query = query.offset(offset).limit(page_records_count)
+                query = query.offset(offset).limit(page_records_count).order_by(Opportunities.publication_date.desc())
 
                 result = await session.execute(query)
-                items = result.mappings().all()
+                items = result.scalars().all()
+
+                logger.debug(f"items: {items}")
 
                 return [
-                    OpportunityDTO.model_validate(item) for item in items
+                    OpportunityDTO.model_validate(item, from_attributes=True) for item in items
                 ], total_count
             except Exception as e:
                 logger.error(e)

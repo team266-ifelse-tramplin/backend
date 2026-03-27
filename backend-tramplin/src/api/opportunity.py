@@ -9,7 +9,7 @@ from database.dto.opportunity import (OpportunityDTO, OpportunityEditDTO,
                                       OpportunityFiltersDTO)
 from services.opportunity import OpportunityMaster
 
-opportunity_router = APIRouter(prefix="/opportunities")
+opportunity_router = APIRouter(prefix="/opportunities", tags=["Opportunity"])
 
 
 @opportunity_router.get(
