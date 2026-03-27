@@ -15,7 +15,7 @@ class Config(BaseSettings):
         env_nested_delimiter=ENV_NESTED_DELIMETER,
     )
 
-    default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)
+    # default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)
     default_file_type: str = "application/octet-stream"
 
     default_host: str = "localhost"

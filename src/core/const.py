@@ -23,3 +23,9 @@ class VerificationMethod(StrEnum):
 
 
 API_URL = "/api/v1"
+ROLES = {
+    1: "Админ",
+    2: "Соискатель",
+    3: "Куратор",
+    4: "Работадатель"
+}

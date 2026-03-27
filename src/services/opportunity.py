@@ -4,10 +4,11 @@ from uuid import UUID
 from loguru import logger
 from sqlalchemy import delete, func, insert, select, update
 
-from core.types import OpportunityDict, OpportunityListWithQuantity
+from core.types import OpportunityDict
 from database.dto.opportunity import (OpportunityDTO, OpportunityEditDTO,
-                                      OpportunityFiltersDTO)
-from database.models.models import Opportunities
+                                      OpportunityFiltersDTO,
+                                      OpportunityListWithQuantityDTO, OpportunityCreateDTO)
+from database.models.models import Opportunities, Tags, Opportunity_Tags
 from services.base import ServiceBase
 
 logger.add(stderr, format="{time} {level} {message}", level="DEBUG", colorize=True)
@@ -20,10 +21,10 @@ class OpportunityMaster(ServiceBase):
         filters: OpportunityFiltersDTO,
         page: int = 1,
         page_records_count: int = 10,
-    ) -> OpportunityListWithQuantity:
+    ) -> list[OpportunityDict]:
 
         filters_list: list = self.__make_filters_list_from_pydantic_model(filters)
-
+        logger.debug(f"fls: {filters_list}")
         async with self._db.get_session() as session:
             try:
                 query = select(Opportunities)
@@ -37,16 +38,23 @@ class OpportunityMaster(ServiceBase):
                 total_count = count_result.scalar_one()
 
                 offset = (page - 1) * page_records_count
-                query = query.offset(offset).limit(page_records_count).order_by(Opportunities.publication_date.desc())
+                query = (
+                    query.offset(offset)
+                    .limit(page_records_count)
+                    .order_by(Opportunities.publication_date.desc())
+                )
 
                 result = await session.execute(query)
                 items = result.scalars().all()
 
-                logger.debug(f"items: {items}")
+                return OpportunityListWithQuantityDTO(
+                    opportunities=[
+                        OpportunityDTO.model_validate(item, from_attributes=True)
+                        for item in items
+                    ],
+                    quantity=total_count,
+                )
 
-                return [
-                    OpportunityDTO.model_validate(item, from_attributes=True) for item in items
-                ], total_count
             except Exception as e:
                 logger.error(e)
                 raise
@@ -59,19 +67,56 @@ class OpportunityMaster(ServiceBase):
             result = await session.execute(query)
 
             item = result.scalar_one_or_none()
+            model = OpportunityDTO.model_validate(item)
 
-            return OpportunityDTO.model_validate(item) if item is not None else None
+            return model.model_dump() if item is not None else None
 
-    async def create_one(self, opportunity_dto: OpportunityDTO) -> OpportunityDict:
+    async def create_one(self, opportunity_dto: OpportunityCreateDTO) -> OpportunityDict:
 
-        opportunity_data: OpportunityDict = opportunity_dto.model_dump()
+        opportunity_data = opportunity_dto.model_dump(exclude={'tags_data'})
+
         async with self._db.get_session() as session:
 
-            query = insert(Opportunities).values(**opportunity_data)
-            await session.execute(query)
-            await session.commit()
+            stmt = insert(Opportunities).values(**opportunity_data).returning(Opportunities.id)
+            result = await session.execute(stmt)
+            new_opportunity_id = result.scalar_one()
 
-        return opportunity_data
+            tag_ids: list = []
+            if opportunity_dto.tags_data:
+                for tag_name, tag_category in opportunity_dto.tags_data:
+                    # Пытаемся найти существующий тег
+                    tag_query = select(Tags.id).where(Tags.name == tag_name)
+                    tag_result = await session.execute(tag_query)
+                    tag_id = tag_result.scalar_one_or_none()
+
+                    if tag_id is None:
+                        insert_tag = insert(Tags).values(
+                            name=tag_name,
+                            category=tag_category or 'skill',
+                            is_system=False
+                        ).returning(Tags.id)
+                        tag_result = await session.execute(insert_tag)
+                        tag_id = tag_result.scalar_one()
+
+                    tag_ids.append(tag_id)
+
+                if tag_ids:
+                    values = [
+                        {"opportunity_id": new_opportunity_id, "tag_id": t_id}
+                        for t_id in tag_ids
+                    ]
+                    insert_links = insert(Opportunity_Tags).values(values)
+                    await session.execute(insert_links)
+
+            await session.commit()
+            
+            response_data = {
+                **opportunity_data,
+                "id": str(new_opportunity_id),
+                "tags_data": opportunity_dto.tags_data or []
+            }
+            return response_data
+
 
     async def edit_one(
         self, opportunity_id: UUID, new_opportunity_dto: OpportunityEditDTO
@@ -128,8 +173,6 @@ class OpportunityMaster(ServiceBase):
             field = getattr(Opportunities, field_name, None)
             if field is not None:
                 if value is not None:
-                    filters_list.append(field.is_(None))
-                else:
                     filters_list.append(field == value)
 
         return filters_list

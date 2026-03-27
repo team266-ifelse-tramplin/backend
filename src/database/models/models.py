@@ -33,7 +33,7 @@ class Users(Base):
     is_blocked: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(settings.default_timezone),
+        default=lambda: datetime.now(),
         nullable=False,
     )
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
@@ -55,7 +55,7 @@ class Verification_Codes(Base):
     is_used: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(settings.default_timezone),
+        default=lambda: datetime.now(),
         nullable=False,
     )
 
@@ -70,7 +70,7 @@ class JWT_Token_Blacklist(Base):
     )
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(settings.default_timezone),
+        default=lambda: datetime.now(),
         nullable=False,
     )
 
@@ -151,12 +151,12 @@ class User_Documents(Base):
     is_draft: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(settings.default_timezone),
+        default=lambda: datetime.now(),
         nullable=False,
     )
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(settings.default_timezone),
+        default=lambda: datetime.now(),
         nullable=False,
     )
 
@@ -194,12 +194,12 @@ class Companies(Base):
     verified_by: Mapped[UUID] = mapped_column(ForeignKey("users.id"), nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(settings.default_timezone),
+        default=lambda: datetime.now(),
         nullable=False,
     )
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(settings.default_timezone),
+        default=lambda: datetime.now(),
         nullable=False,
     )
 
@@ -215,7 +215,7 @@ class Employers(Base):
     position: Mapped[str] = mapped_column(String(100))
     # is_approved: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+        DateTime(timezone=True), default=lambda: datetime.now()
     )
 
 
@@ -244,7 +244,7 @@ class Opportunities(Base):
 
     @property
     def tags_data(self) -> list[str]:
-        return [tag.name for tag in self.tags]
+        return [{"name": tag.name, "category": tag.category} for tag in self.tags]
 
     location: Mapped[str] = mapped_column(String(255))
     latitude: Mapped[float] = mapped_column(Numeric(10, 8))
@@ -262,10 +262,10 @@ class Opportunities(Base):
     created_by: Mapped[UUID] = mapped_column(ForeignKey("users.id"), nullable=False)
     views_count: Mapped[int] = mapped_column(Integer, default=0)
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+        DateTime(timezone=True), default=lambda: datetime.now()
     )
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+        DateTime(timezone=True), default=lambda: datetime.now()
     )
 
     __table_args__ = (
@@ -299,7 +299,7 @@ class Tags(Base):
     category: Mapped[str] = mapped_column(String(50))  # skill, level, employment_type
     is_system: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+        DateTime(timezone=True), default=lambda: datetime.now()
     )
 
     opportunities: Mapped[list["Opportunities"]] = relationship(
@@ -321,7 +321,7 @@ class Opportunity_Tags(Base):
     )
     tag_id: Mapped[int] = mapped_column(ForeignKey("tags.id", ondelete="CASCADE"))
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+        DateTime(timezone=True), default=lambda: datetime.now()
     )
 
 
@@ -334,7 +334,7 @@ class Curators(Base):
     )
     university: Mapped[str] = mapped_column(String(255))
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+        DateTime(timezone=True), default=lambda: datetime.now()
     )
 
 
@@ -352,12 +352,12 @@ class Applications(Base):
     status: Mapped[str] = mapped_column(String(50), default="pending")
     cover_letter: Mapped[str] = mapped_column(Text)
     applied_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+        DateTime(timezone=True), default=lambda: datetime.now()
     )
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(settings.default_timezone),
-        onupdate=lambda: datetime.now(settings.default_timezone),
+        default=lambda: datetime.now(),
+        onupdate=lambda: datetime.now(),
     )
 
     __table_args__ = (
@@ -383,7 +383,7 @@ class Favorites(Base):
         ForeignKey("opportunities.id", ondelete="CASCADE"), nullable=False
     )
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+        DateTime(timezone=True), default=lambda: datetime.now()
     )
 
     __table_args__ = (
@@ -404,12 +404,12 @@ class Connections(Base):
     )  # тот, кто полуичл заявку на добавление
     status: Mapped[str] = mapped_column(String(20), default="pending")
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(settings.default_timezone)
+        DateTime(timezone=True), default=lambda: datetime.now()
     )
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(settings.default_timezone),
-        onupdate=lambda: datetime.now(settings.default_timezone),
+        default=lambda: datetime.now(),
+        onupdate=lambda: datetime.now(),
     )
 
     __table_args__ = (

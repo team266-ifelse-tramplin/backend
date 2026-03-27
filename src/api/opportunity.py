@@ -4,10 +4,12 @@ from uuid import UUID
 
 from fastapi import APIRouter, Depends, Request
 from fastapi.responses import JSONResponse, Response
+from loguru import logger
 
-from database.dto.opportunity import (OpportunityDTO, OpportunityEditDTO,
+from database.dto.opportunity import (OpportunityCreateDTO, OpportunityEditDTO,
                                       OpportunityFiltersDTO)
 from services.opportunity import OpportunityMaster
+from utils.funcs import convert_uuid_to_str_in_data
 
 opportunity_router = APIRouter(prefix="/opportunities", tags=["Opportunity"])
 
@@ -20,7 +22,12 @@ async def get_all_opps(request: Request, filters: OpportunityFiltersDTO = Depend
     try:
         result = await op_master.get_all_with_filters(filters)
         return JSONResponse(
-            content={"quantity": result[1], "data": result[0]},
+            content={
+                "quantity": result.quantity,
+                "data": convert_uuid_to_str_in_data(
+                    [item.model_dump() for item in result.opportunities]
+                ),
+            },
             status_code=HTTPStatus.OK,
         )
     except Exception as e:
@@ -37,7 +44,9 @@ async def get_one(request: Request, opportunity_id: UUID | str):
     op_master: OpportunityMaster = request.app.state.op_master
     try:
         result = await op_master.get_one(opportunity_id)
-        return JSONResponse(content=result, status_code=HTTPStatus.OK)
+        return JSONResponse(
+            content=convert_uuid_to_str_in_data(result), status_code=HTTPStatus.OK
+        )
     except Exception as e:
         return JSONResponse(
             content={"type": str(e.__class__), "message": str(e)},
@@ -46,13 +55,14 @@ async def get_one(request: Request, opportunity_id: UUID | str):
 
 
 @opportunity_router.post("/create_one", description="Создание возможности")
-async def create_one(request: Request, opportunity_dto: OpportunityDTO):
+async def create_one(request: Request, opportunity_dto: OpportunityCreateDTO):
     op_master: OpportunityMaster = request.app.state.op_master
     try:
         result = await op_master.create_one(opportunity_dto)
         return JSONResponse(
             content={
-                "uuid": result["id"],
+
+                "data": result,
                 "created_at": datetime.now(tz=timezone.utc).isoformat(
                     sep=" ", timespec="seconds"
                 ),
