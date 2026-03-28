@@ -23,6 +23,8 @@ class VerificationMethod(StrEnum):
 
 
 API_URL = "/api/v1"
+DT_EXAMPLE = "2025-03-28 14:30"
+DT_FORMAT = "%Y-%m-%d %H:%M"
 ROLES = {
     1: "Админ",
     2: "Соискатель",

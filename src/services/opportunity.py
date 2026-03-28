@@ -10,6 +10,7 @@ from database.dto.opportunity import (OpportunityDTO, OpportunityEditDTO,
                                       OpportunityListWithQuantityDTO, OpportunityCreateDTO)
 from database.models.models import Opportunities, Tags, Opportunity_Tags
 from services.base import ServiceBase
+from utils.funcs import serialize_dict_for_response
 
 logger.add(stderr, format="{time} {level} {message}", level="DEBUG", colorize=True)
 
@@ -73,7 +74,11 @@ class OpportunityMaster(ServiceBase):
 
     async def create_one(self, opportunity_dto: OpportunityCreateDTO) -> OpportunityDict:
 
-        opportunity_data = opportunity_dto.model_dump(exclude={'tags_data'})
+        opportunity_data = {
+            k: v
+            for k, v in opportunity_dto.model_dump(exclude={"tags_data"}).items()
+            if v is not None
+        }
 
         async with self._db.get_session() as session:
 
@@ -83,7 +88,9 @@ class OpportunityMaster(ServiceBase):
 
             tag_ids: list = []
             if opportunity_dto.tags_data:
-                for tag_name, tag_category in opportunity_dto.tags_data:
+                for tag in opportunity_dto.tags_data:
+                    tag_name = tag.name
+                    tag_category = tag.category
                     # Пытаемся найти существующий тег
                     tag_query = select(Tags.id).where(Tags.name == tag_name)
                     tag_result = await session.execute(tag_query)
@@ -110,11 +117,11 @@ class OpportunityMaster(ServiceBase):
 
             await session.commit()
             
-            response_data = {
+            response_data = serialize_dict_for_response({
                 **opportunity_data,
-                "id": str(new_opportunity_id),
-                "tags_data": opportunity_dto.tags_data or []
-            }
+                "id": new_opportunity_id,
+                "tags_data": [t.model_dump() for t in opportunity_dto.tags_data] if opportunity_dto.tags_data else []
+            })
             return response_data
 
 
@@ -124,7 +131,7 @@ class OpportunityMaster(ServiceBase):
 
         opportunity_data: OpportunityDict = {
             key: value
-            for key, value in new_opportunity_dto.model_dump()
+            for key, value in new_opportunity_dto.model_dump().items()
             if value is not None
         }
 
@@ -137,7 +144,7 @@ class OpportunityMaster(ServiceBase):
             )
             await session.commit()
 
-        return opportunity_data
+        return serialize_dict_for_response(opportunity_data)
 
     async def delete_one(self, opportunity_id: UUID) -> None:
         async with self._db.get_session() as session:
