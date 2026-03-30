@@ -15,7 +15,6 @@ class Config(BaseSettings):
         env_nested_delimiter=ENV_NESTED_DELIMETER,
     )
 
-    # default_timezone: ZoneInfo = ZoneInfo(DEFAULT_TIMEZONE)
     default_file_type: str = "application/octet-stream"
 
     default_host: str = "localhost"
@@ -29,13 +28,11 @@ class Config(BaseSettings):
     postgres_driver: str
     postgres_db: str
 
-    # JWT
     jwt_secret: SecretStr
-    jwt_algorithm: str = "HS256"
+    jwt_algorithm: str
     jwt_access_expire_minutes: int = 30
     jwt_refresh_expire_days: int = 30
 
-    # SMTP
     smtp_host: str = "localhost"
     smtp_port: int = 1025
     smtp_user: str = ""

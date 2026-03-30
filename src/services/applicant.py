@@ -7,7 +7,7 @@ from database.dto.applicants import ApplicantCreateDTO, ApplicantEditDTO
 from database.dto.user import UserCreateDTO
 from database.models.models import Applicants, Applications
 from services.base import UserServiceBase
-from src.database.dto.applications import (ApplicationCreateDTO,
+from database.dto.applications import (ApplicationCreateDTO,
                                            ApplicationDTO,
                                            ApplicationsListWithQuantity)
 
