@@ -5,10 +5,11 @@ from loguru import logger
 from sqlalchemy import delete, func, insert, select, update
 
 from core.types import OpportunityDict
-from database.dto.opportunity import (OpportunityDTO, OpportunityEditDTO,
+from database.dto.opportunity import (OpportunityCreateDTO, OpportunityDTO,
+                                      OpportunityEditDTO,
                                       OpportunityFiltersDTO,
-                                      OpportunityListWithQuantityDTO, OpportunityCreateDTO)
-from database.models.models import Opportunities, Tags, Opportunity_Tags
+                                      OpportunityListWithQuantityDTO)
+from database.models.models import Opportunities, Opportunity_Tags, Tags
 from services.base import ServiceBase
 from utils.funcs import serialize_dict_for_response
 
@@ -72,7 +73,9 @@ class OpportunityMaster(ServiceBase):
 
             return model.model_dump() if item is not None else None
 
-    async def create_one(self, opportunity_dto: OpportunityCreateDTO) -> OpportunityDict:
+    async def create_one(
+        self, opportunity_dto: OpportunityCreateDTO
+    ) -> OpportunityDict:
 
         opportunity_data = {
             k: v
@@ -82,7 +85,11 @@ class OpportunityMaster(ServiceBase):
 
         async with self._db.get_session() as session:
 
-            stmt = insert(Opportunities).values(**opportunity_data).returning(Opportunities.id)
+            stmt = (
+                insert(Opportunities)
+                .values(**opportunity_data)
+                .returning(Opportunities.id)
+            )
             result = await session.execute(stmt)
             new_opportunity_id = result.scalar_one()
 
@@ -97,11 +104,15 @@ class OpportunityMaster(ServiceBase):
                     tag_id = tag_result.scalar_one_or_none()
 
                     if tag_id is None:
-                        insert_tag = insert(Tags).values(
-                            name=tag_name,
-                            category=tag_category or 'skill',
-                            is_system=False
-                        ).returning(Tags.id)
+                        insert_tag = (
+                            insert(Tags)
+                            .values(
+                                name=tag_name,
+                                category=tag_category or "skill",
+                                is_system=False,
+                            )
+                            .returning(Tags.id)
+                        )
                         tag_result = await session.execute(insert_tag)
                         tag_id = tag_result.scalar_one()
 
@@ -116,14 +127,19 @@ class OpportunityMaster(ServiceBase):
                     await session.execute(insert_links)
 
             await session.commit()
-            
-            response_data = serialize_dict_for_response({
-                **opportunity_data,
-                "id": new_opportunity_id,
-                "tags_data": [t.model_dump() for t in opportunity_dto.tags_data] if opportunity_dto.tags_data else []
-            })
-            return response_data
 
+            response_data = serialize_dict_for_response(
+                {
+                    **opportunity_data,
+                    "id": new_opportunity_id,
+                    "tags_data": (
+                        [t.model_dump() for t in opportunity_dto.tags_data]
+                        if opportunity_dto.tags_data
+                        else []
+                    ),
+                }
+            )
+            return response_data
 
     async def edit_one(
         self, opportunity_id: UUID, new_opportunity_dto: OpportunityEditDTO
@@ -168,8 +184,6 @@ class OpportunityMaster(ServiceBase):
             await session.commit()
 
             return total_count
-    
-    async def get_applications_by_user_id(): ... ## TODO: в Applicants
 
     def __make_filters_list_from_pydantic_model(
         self, filters: OpportunityFiltersDTO

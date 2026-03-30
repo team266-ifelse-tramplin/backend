@@ -59,7 +59,7 @@ class OpportunityEditDTO(DTO):
     description: str | None = None
     opportunity_type: Annotated[
         Literal["vacancy", "internship", "mentoring", "event"] | None,
-        Field(alias="type")
+        Field(alias="type"),
     ] = None
     work_format: Annotated[Literal["office", "hybrid", "remote"] | None, Field()] = None
     employment: Annotated[Literal["full", "partial"] | None, Field()] = None
@@ -78,8 +78,9 @@ class OpportunityEditDTO(DTO):
     event_date: datetime | None = Field(default=None, examples=[DT_EXAMPLE])
     status: Annotated[str | None, Field(max_length=50)] = None
 
+
 class OpportunityCreateDTO(DTO):
-    title: Annotated[str, Field(max_length=255)] 
+    title: Annotated[str, Field(max_length=255)]
     description: str
     company_id: Annotated[UUID4, Field(frozen=True)]
     opportunity_type: (
@@ -103,7 +104,9 @@ class OpportunityCreateDTO(DTO):
     salary_from: int | None = None
     salary_to: int | None = None
     currency: Annotated[str | None, Field(min_length=3, max_length=3)] = "RUB"
-    publication_date: datetime = Field(default_factory=datetime.now, examples=[DT_EXAMPLE])
+    publication_date: datetime = Field(
+        default_factory=datetime.now, examples=[DT_EXAMPLE]
+    )
     expiration_date: datetime | None = Field(default=None, examples=[DT_EXAMPLE])
     event_date: datetime | None = Field(default=None, examples=[DT_EXAMPLE])
     contact_info: str | None = None
@@ -112,6 +115,7 @@ class OpportunityCreateDTO(DTO):
     views_count: Annotated[int, Field(default=0)] | None = None
     created_at: Annotated[datetime, Field(frozen=True)] | None = None
     updated_at: datetime | None = None
+
 
 class OpportunityFiltersDTO(DTO):
     status: Literal["active", "closed"] | None = Query(

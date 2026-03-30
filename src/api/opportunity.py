@@ -60,10 +60,9 @@ async def create_one(request: Request, opportunity_dto: OpportunityCreateDTO):
     try:
         result = await op_master.create_one(opportunity_dto)
         with_str_uuid_data = convert_uuid_to_str_in_data(result)
-        
+
         return JSONResponse(
             content={
-
                 "data": with_str_uuid_data,
                 "created_at": datetime.now(tz=timezone.utc).isoformat(
                     sep=" ", timespec="seconds"

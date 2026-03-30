@@ -6,7 +6,7 @@ from pydantic import UUID4, Field, field_serializer
 from database.dto.base import DTO
 
 
-class FavouriteDTO(DTO):
+class FavoriteDTO(DTO):
     id: Annotated[UUID4, Field(frozen=True)]
     user_id: Annotated[UUID4, Field(frozen=True)]
     opportunity_id: Annotated[UUID4, Field(frozen=True)]
@@ -19,11 +19,11 @@ class FavouriteDTO(DTO):
         return dt.strftime("%Y-%m-%d %H:%M")
 
 
-class FavouriteAddDTO(DTO):
+class FavoriteAddDTO(DTO):
     user_id: Annotated[UUID4, Field(frozen=True)]
     opportunity_id: Annotated[UUID4, Field(frozen=True)]
 
 
-class FavouritesListWithQuantity(DTO):
-    favourites: list[FavouriteDTO]
+class FavoritesListWithQuantity(DTO):
+    Favorites: list[FavoriteDTO]
     quantity: int

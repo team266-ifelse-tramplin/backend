@@ -5,6 +5,7 @@ from pydantic import UUID4, Field, field_serializer
 
 from database.dto.base import DTO
 
+
 class ApplicationDTO(DTO):
     id: Annotated[UUID4, Field(frozen=True)]
     opportunity_id: Annotated[UUID4, Field(frozen=True)]

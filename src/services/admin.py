@@ -1,4 +1,4 @@
 from services.base import UserServiceBase
 
-class Admin(UserServiceBase):
-    ...
+
+class Admin(UserServiceBase): ...

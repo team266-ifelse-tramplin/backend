@@ -3,7 +3,7 @@ from typing import Annotated
 from pydantic import UUID4, Field
 
 from database.dto.base import DTO
-from database.dto.user import UserCreateDTO, UserEditDTO, UserDTO
+from database.dto.user import UserCreateDTO, UserDTO, UserEditDTO
 
 
 class ApplicantDTO(DTO):

@@ -29,6 +29,20 @@ class Config(BaseSettings):
     postgres_driver: str
     postgres_db: str
 
+    # JWT
+    jwt_secret: SecretStr
+    jwt_algorithm: str = "HS256"
+    jwt_access_expire_minutes: int = 30
+    jwt_refresh_expire_days: int = 30
+
+    # SMTP
+    smtp_host: str = "localhost"
+    smtp_port: int = 1025
+    smtp_user: str = ""
+    smtp_password: SecretStr = SecretStr("")
+    smtp_from: str = "no-reply@localhost"
+    smtp_use_tls: bool = False
+
     @property
     def db_conn_link(self) -> str:
         return f"{self.postgres_driver}://{self.postgres_user}:{self.postgres_password.get_secret_value()}@{self.postgres_host}:{self.postgres_port}/{self.postgres_db}"

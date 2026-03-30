@@ -224,6 +224,7 @@ class Employers(Base):
         DateTime(timezone=True), default=lambda: datetime.now()
     )
 
+
 class Opportunities(Base):
     id: Mapped[UUID] = mapped_column(
         UUID, primary_key=True, default=uuid4, server_default=text("get_random_uuid()")

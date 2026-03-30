@@ -7,12 +7,20 @@ from loguru import logger
 
 from api.main_router import api_main_router
 from core.config import settings
+from services.applicant import Applicant
+from services.auth import AuthMaster
+from services.employer import Employer
+from services.favorites import FavoriteMaster
 from services.opportunity import OpportunityMaster
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     app.state.op_master = OpportunityMaster()
+    app.state.Favorite = FavoriteMaster()
+    app.state.applicant = Applicant()
+    app.state.employer = Employer()
+    app.state.auth = AuthMaster()
     yield
     logger.complete()
 
