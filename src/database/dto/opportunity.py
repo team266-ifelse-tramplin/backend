@@ -35,7 +35,7 @@ class OpportunityDTO(DTO):
     salary_from: int | None
     salary_to: int | None
     currency: Annotated[str | None, Field(min_length=3, max_length=3)]
-    publication_date: datetime
+    publication_date: datetime = datetime.now().strftime("%Y-%m-%d %H:%M")
     expiration_date: datetime | None
     event_date: datetime | None
     contact_info: str | None

@@ -81,6 +81,11 @@ class Roles(Base):
         String(10), unique=True, nullable=False
     )  # admin, guest, applicant, employer
 
+    permissions: Mapped[list["Permissions"]] = relationship(
+        secondary="role_permissions",
+        lazy="selectin",
+    )
+
 
 class Permissions(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
@@ -107,9 +112,10 @@ class Applicants(Base):
     id: Mapped[UUID] = mapped_column(
         UUID, primary_key=True, default=uuid4, server_default=text("get_random_uuid()")
     )
-    user_id: Mapped[UUID] = mapped_column(
-        ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE"), nullable=False
-    )
+    # user_id: Mapped[UUID] = mapped_column(
+    #     ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE"), nullable=False
+    # )
+    user: Mapped["Users"] = relationship("Users", lazy="selectin")
     first_name: Mapped[str] = mapped_column(String(100))
     middle_name: Mapped[str] = mapped_column(String(100))
     last_name: Mapped[str] = mapped_column(String(100))
@@ -217,7 +223,6 @@ class Employers(Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda: datetime.now()
     )
-
 
 class Opportunities(Base):
     id: Mapped[UUID] = mapped_column(

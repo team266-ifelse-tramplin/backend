@@ -1,4 +1,8 @@
-from abc import ABC, abstractmethod
+from abc import ABC
+from database.dto.user import UserCreateDTO, UserEditDTO
+from database.models.models import Users, Roles
+from sqlalchemy import insert, update, delete, select
+from uuid import UUID
 
 from core.config import settings
 from database.db import Database
@@ -11,29 +15,48 @@ class ServiceBase(ABC):
     _db = Database(settings.db_conn_link)
 
 
-# class UserServiceBase(ABC, ServiceBase):
+class UserServiceBase(ServiceBase):
 
-#     __role_id: int = None
+    __role_id: int = None
     
-    # @abstractmethod
-    # async def create_user(self, user_data: UserCreateDTO):
-    #     pass
+    async def create_user(self, user_data: UserCreateDTO) -> dict:
 
-    # @abstractmethod
-    # async def edit_user(self, user_id: UUID, new_user_data: UserEditDTO):
-    #     pass
+        user_data_dict: dict = user_data.model_dump()
 
-    # @abstractmethod
-    # async def delete_user(self, user_id: UUID):
-    #     pass
+        async with self._db.get_session() as session:
+            query = insert(Users).values(**user_data_dict)
+            await session.execute(query)
+            await session.commit()
 
-    # @abstractmethod
-    # async def get_perms(self, user_id: UUID):
-    #     pass
+        return user_data_dict
+    
+    async def edit_user(self, user_id: UUID, new_user_data: UserEditDTO) -> dict:
 
-    # @property
-    # def role(self) -> int:
-    #     return ROLES[self.__role_id]
+        new_user_data_dict: dict = {key: value
+            for key, value in new_user_data.model_dump()
+            if value is not None
+        }
+
+        async with self._db.get_session() as session:
+            query = update(Users).where(Users.id == user_id).values(**new_user_data_dict).execution_options(synchronize_session=False)
+            await session.execute(query)
+            await session.commit()
+        
+        return new_user_data_dict
+    
+    async def delete_user(self, user_id: UUID) -> None:
+        async with self._db.get_session() as session:
+            await session.execute(delete(Users).where(Users.id == user_id))
+            await session.commit()
+
+    @classmethod    
+    async def get_perms(cls):
+        async with cls._db.get_session() as session:
+            await session.execute(select(Roles.permissions).where(Roles.id == cls.__role_id))
+            
+    @property
+    def role(self) -> int:
+        return ROLES[self.__role_id]
 
 
 

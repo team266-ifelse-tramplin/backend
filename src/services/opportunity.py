@@ -168,6 +168,8 @@ class OpportunityMaster(ServiceBase):
             await session.commit()
 
             return total_count
+    
+    async def get_applications_by_user_id(): ... ## TODO: в Applicants
 
     def __make_filters_list_from_pydantic_model(
         self, filters: OpportunityFiltersDTO
